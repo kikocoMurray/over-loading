@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "eslint-config-airbnb": "^19.0.4",
     "vue": "^3.2.47"
   },
   "devDependencies": {

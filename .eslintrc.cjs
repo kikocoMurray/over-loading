@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-essential',
     'plugin:prettier/recommended',
-    'airbnb-base',
+    'airbnb',
     'prettier',
   ],
   overrides: [
