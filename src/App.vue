@@ -1,5 +1,5 @@
 <template lang="pug">
-template
+.body
   infinite-scrolling(:data="data" @loading="getGitHubData")
 </template>
 <script>
@@ -13,8 +13,22 @@ export default defineComponent({
   },
   setup() {
     const data = ref([])
+    const fake = ref([
+      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
+      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
+      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
+      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
+      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
+      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
+    ])
+
+    // 這邊要做虛擬渲染
     const getGitHubData = ()=>{
-      console.log('Infinite')
+      console.log('insert data')
+      data.value = [
+        ...data.value,
+        ...fake.value,
+      ]
     }
 
     getGitHubData()
@@ -28,5 +42,12 @@ export default defineComponent({
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
+@import '~/scss/share.scss';
+
+.body {
+  flex: 1;
+  background: $bg;
+  padding: to-rem(30px);
+}
 </style>
