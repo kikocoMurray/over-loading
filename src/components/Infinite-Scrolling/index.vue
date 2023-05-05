@@ -1,5 +1,8 @@
 <template lang="pug">
-h4 無限滾動開始
+h4 kikocoMurray 無限滾動
+h3
+  span 資料來源:
+  a(href="https://github.com/kikocoMurray?tab=repositories") https://github.com/kikocoMurray?tab=repositories
 section(ref="container")
   .virtual__warp(:style="{height:`${calcContainerHeight}px`}")
     .virtual__items(:style="{transform: `${calcOffsetHeight}`}")
@@ -114,7 +117,11 @@ section {
 
 h4 {
   font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: to-rem(16px);
+}
+
+h3 {
+  margin-bottom: to-rem(8px);
 }
 
 .loader {
