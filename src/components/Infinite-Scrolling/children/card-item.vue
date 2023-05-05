@@ -1,11 +1,11 @@
 <template lang="pug">
-.item__wrap
+.item__wrap(ref="wrap")
   .item__wrap__title  {{ title }}
   .item__wrap__description {{ description }}
   .item__wrap__url {{ url }}
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 
 export default defineComponent({
   name: 'card-item',
@@ -23,8 +23,23 @@ export default defineComponent({
       default: '',
     }
   },
+  emits:['build'],
+  setup(_,{emit}) {
+    const wrap = ref(null)
 
-  setup() {},
+    watch(
+      ()=>wrap.value,
+      (dom) =>{
+        if(!dom) return
+
+        emit('build', dom.clientHeight + 16)
+      }
+    )
+
+    return {
+      wrap
+    }
+  },
 })
 </script>
 

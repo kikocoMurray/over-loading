@@ -31,7 +31,7 @@ export default defineComponent({
       ]
     }
 
-    getGitHubData()
+    // getGitHubData()
 
     return {
       data,
