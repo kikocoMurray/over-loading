@@ -8,7 +8,7 @@ clone 過程
 ```
 {
   "owner": "kikocoMurray",
-  "token": "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" 
+  "token": "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" 
 }
 ```
 2. 將 localhost 指向 127.0.0.1 
