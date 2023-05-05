@@ -2,7 +2,7 @@
 .item__wrap(ref="wrap")
   .item__wrap__title  {{ title }}
   .item__wrap__description {{ description }}
-  .item__wrap__url {{ url }}
+  a.item__wrap__url(:href="url" target="_blank") {{ url }}
 </template>
 <script>
 import { defineComponent, ref, watch } from 'vue'
@@ -59,6 +59,10 @@ export default defineComponent({
 
   &__description {
     margin-bottom: to-rem(4px);
+  }
+
+  &__url {
+    color: burlywood;
   }
 
   &:not(&:last-child) {

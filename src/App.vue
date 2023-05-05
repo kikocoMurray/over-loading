@@ -1,9 +1,13 @@
 <template lang="pug">
 .body
-  infinite-scrolling(:data="data" @loading="getGitHubData")
+  infinite-scrolling(:data="data" @loading="getGitHubData" :lock="lock")
 </template>
 <script>
 import InfiniteScrolling from '@/components/infinite-scrolling/index.vue'
+import {
+  getGitHubData as getGitHubDataServices
+} from '@/services/GithubServices.js'
+
 import { ref, defineComponent } from 'vue'
 
 export default defineComponent({
@@ -13,26 +17,28 @@ export default defineComponent({
   },
   setup() {
     const data = ref([])
-    const fake = ref([
-      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
-      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
-      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
-      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
-      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
-      {title: 'advert_adioun',description:'使用 AAA 完成 BBB',url:'https://stackoverflow.com/questions/66043612/vue3-vite-project-alias-src-to-not-working'},
-    ])
+    const lock = ref(false)
+    const page = ref(0)
 
     // 這邊要做虛擬渲染
     const getGitHubData = ()=>{
-      console.log('insert data')
-      data.value = [
-        ...data.value,
-        ...fake.value,
-      ]
+      page.value = page.value + 1
+
+      getGitHubDataServices({page:page.value})
+        .then((res)=>{
+          // 代表資料以無法在 loading
+          lock.value = res.length === 0
+
+          data.value = [
+            ...data.value,
+            ...res
+          ]
+        })
     }
 
     return {
       data,
+      lock,
       getGitHubData
     }
   },

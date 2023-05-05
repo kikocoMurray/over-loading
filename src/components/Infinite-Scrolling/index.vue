@@ -5,7 +5,7 @@ section(ref="container")
     .virtual__items(:style="{transform: `${calcOffsetHeight}`}")
       template(v-for="node in spliceData")
         card-item(:title="node.title" :description="node.description" :url="node.url" @build="setItemHeight")
-  .loader(ref="touch")
+  .loader(ref="touch" v-show="!lock")
     .loading--touch
 </template>
 <script>
@@ -24,6 +24,10 @@ export default defineComponent({
       type: Array,
       default: ()=>[]
     },
+    lock: {
+      type: Boolean,
+      default: false,
+    }
   },
   emits: ['loading'],
   setup(props,{ emit }) {
