@@ -1,11 +1,17 @@
 # Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+注意 ！！！
+`token (30day 過期)`
 
-## Recommended IDE Setup
+clone 過程 
+1. 複製 token.example.json 並取名為 token.json 將內容更改為以下
+```
+{
+  "owner": "kikocoMurray",
+  "token": "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" 
+}
+```
+2. 將 localhost 指向 127.0.0.1 
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+3. 運行 `yarn dev`
 
-
-## token (30day 過期)
-token = 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
