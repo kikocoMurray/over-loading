@@ -59,7 +59,7 @@ export default defineComponent({
 
   &__description {
     margin-bottom: to-rem(4px);
-    height: to-rem(30px);
+    height: to-rem(20px);
   }
 
   &__url {
