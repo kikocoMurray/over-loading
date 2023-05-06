@@ -36,12 +36,8 @@ jobs:
         env:
           VITE_OWNER: ${{ secrets.VITE_OWNER }}
           VITE_TOKEN: ${{ secrets.VITE_TOKEN }}
-      - name: Print environment variable
-        run: echo "The value of NODE_ENV is ${{ env }}"
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Deploy directory
-        run: ls -la
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
@@ -50,5 +46,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-      - name: Deploy directory
-        run: ls -la
