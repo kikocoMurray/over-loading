@@ -6,8 +6,8 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/over-loading/' : '/',
   plugins: [vue()],
+  base: process.env.MODE === 'production' ? '/over-loading/' : '',
   server: {
     proxy: {
       '/github': {
@@ -23,4 +23,5 @@ export default defineConfig({
       '~': path.resolve(__dirname, './src/assets')
     },
   },
+  envDir: path.resolve(__dirname, "./env.example")
 })
