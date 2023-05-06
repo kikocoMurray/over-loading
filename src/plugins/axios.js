@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const service = axios.create({
-  baseURL: `https://api.github.com/users/${import.meta.env.VITE_OWNER}`,
+  baseURL: `/github`,
   timeout: 3000,
 })
 
