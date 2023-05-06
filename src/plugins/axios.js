@@ -4,7 +4,7 @@ const service = axios.create({
 baseURL: import.meta.env.MODE === 'production' ? `https://api.github.com/users/${import.meta.env.VITE_OWNER}` : '/github',
   timeout: 3000,
 })
-console.log(import.meta.env)
+
 service.interceptors.request.use(
   (config) => {
     if(config.needToken === true) {
