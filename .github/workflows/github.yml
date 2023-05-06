@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - gh-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   # Single deploy job since we're just deploying
   build:
