@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/example-vite-react/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/over-loading/' : '/',
   plugins: [vue()],
   // server: {
   //   proxy: {
