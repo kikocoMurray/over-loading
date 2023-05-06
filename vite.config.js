@@ -6,8 +6,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 export default defineConfig({
-  // base: process.env.NODE_ENV === 'production' ? '/over-loading/' : '/',
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? '/over-loading/' : '/',
   plugins: [vue()],
   server: {
     proxy: {
