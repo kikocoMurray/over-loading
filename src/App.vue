@@ -24,16 +24,16 @@ export default defineComponent({
     const getGitHubData = ()=>{
       page.value = page.value + 1
 
-      getGitHubDataServices({page:page.value})
-        .then((res)=>{
-          // 代表資料以無法在 loading
-          lock.value = res.length === 0
+      // getGitHubDataServices({page:page.value})
+      //   .then((res)=>{
+      //     // 代表資料以無法在 loading
+      //     lock.value = res.length === 0
 
-          data.value = [
-            ...data.value,
-            ...res
-          ]
-        })
+      //     data.value = [
+      //       ...data.value,
+      //       ...res
+      //     ]
+      //   })
     }
 
     return {
